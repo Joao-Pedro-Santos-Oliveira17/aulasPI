@@ -6,7 +6,8 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 <!-- Compiled and minified JavaScript -->
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -27,16 +28,20 @@
 					<th>Local</th>
 					<th>Data</th>
 					<th>Horário</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-			<tr th:each="e : ${eventos}">
-			<td th:text="${e.id}">1</td>		
-			<td><a th:href="@{/eventos/{id}(id=${e.id})}"><span th:text="${e.Nome}">Aniversário de João</span></td></a>
-			<td th:text="${e.Local}">Clube</td>
-			<td th:text="${e.Data}">25/02/2021</td>
-			<td th:text="${e.Horario}">19:00</td>
-			</tr>
+				<tr th:each="e : ${eventos}">
+					<td th:text="${e.id}">1</td>
+					<td><a th:href="@{/eventos/{id}(id=${e.id})}"><span
+							th:text="${e.Nome}">Aniversário de João</span></td>
+					</a>
+					<td th:text="${e.Local}">Clube</td>
+					<td th:text="${e.Data}">25/02/2021</td>
+					<td th:text="${e.Horario}">19:00</td>
+					<td><a th:href="@{/eventos/{id}/remover(id=${e.id})}"><i class="material-icons">delete</i></a></td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
